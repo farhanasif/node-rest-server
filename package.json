@@ -1,0 +1,17 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "a simple node based api development",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Farhan Asif",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
