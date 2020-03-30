@@ -1,13 +1,12 @@
 const express = require('express');
 
 const router = express.Router();
-const Category = require('../models/category');
-Category.sync();
+const { Category } = require('../../config/sequelize')
+
 
 router.get('/', (req, res, next) => {
-
     Category.findAll({
-        attributes: ['id','categoryName','description']
+        attributes: ['id','categoryName','description','categoryType','gender']
     }).then((result) =>{
         res.status(200).json({
             message: 'Get request success',

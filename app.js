@@ -3,18 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const morgan = require('morgan');
-const Sequelize = require('sequelize');
-// const sequelize = new Sequelize('mysql://root:@localhost:3306/node_rest_db');
-
-// sequelize
-//   .authenticate()
-//   .then(() => {
-//     console.log('Connection has been established successfully.');
-//   })
-//   .catch(err => {
-//     console.error('Unable to connect to the database:', err);
-//   });
-
 const categoryRoutes = require('./api/routes/categories');
 
 app.use(morgan('dev'));
