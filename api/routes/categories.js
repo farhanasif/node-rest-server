@@ -1,7 +1,8 @@
 const express = require('express');
-
+const { QueryTypes } = require('sequelize');
 const router = express.Router();
 const { Category } = require('../../config/sequelize')
+const sequelize = require('../../config/dbcon')
 
 
 router.get('/', (req, res, next) => {
@@ -41,6 +42,19 @@ router.post('/', (req, res, next) => {
     });
     
 });
+
+router.get('/custom', (req, res, next) => {
+    sequelize.query("SELECT * FROM `categories`", { type: QueryTypes.SELECT }).then((result) => {
+        res.status(201).json({
+            result: result
+        });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err
+        });
+    });
+})
 
 
 module.exports = router;
